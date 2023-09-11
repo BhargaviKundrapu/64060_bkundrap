@@ -1,0 +1,53 @@
+---
+title: "FML_assignment_1"
+author: "Bhargavi kundrapu"
+output: html_document
+date: "2023-09-09"
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## downloaded the dataset from Kaggle
+www.kaggle.com\datasets\aliessamali\ecommerce?resource=download
+
+## imported the data set 
+```{r}
+ecommerce = read.csv("C:/Users/user/Downloads/dataset.csv", header = TRUE, sep = ",")
+
+#Descriptive Statistics for Quantitative variables
+
+head(ecommerce$unitprice)
+median(ecommerce$UnitPrice)
+min(ecommerce$UnitPrice)
+max(ecommerce$UnitPrice)
+min(ecommerce$Quantity)
+max(ecommerce$Quantity)
+mean(ecommerce$Quantity)
+summary(ecommerce)
+
+
+#Descriptive Statistics for Categorical variable
+
+table(ecommerce$Country)
+```
+```{r}
+# Transformation of one Variable
+
+square = sqrt(ecommerce$Quantity)
+head(square) 
+square = sqrt(ecommerce$UnitPrice)
+head(square)
+
+```
+```{r}
+plot(x = square, y = ecommerce$UnitPrice,
+     xlab = "UnitPrice",
+     ylab = "Quantity",
+     xlim = c(0,4000),
+     ylim = c(1,9100),
+     main = "ecommerce transaction"
+)
+```
+
